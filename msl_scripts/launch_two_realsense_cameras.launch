@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<launch>
+
+    <!-- 1280x720 is original resolution -->
+    <!-- we reduce it to 1/2 -->
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="serial_no" value="244222071219"/>
+        <arg name="camera" value="fixed_camera"/>
+        <!-- <arg name="color_width" value="640"/>
+        <arg name="color_height" value="360"/> -->
+        <arg name="color_fps" value="30"/>
+    </include>
+    
+    <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="serial_no" value="243522071742"/>
+        <arg name="camera" value="wrist_camera"/>
+        <!-- <arg name="color_width" value="640"/>
+        <arg name="color_height" value="360"/> -->
+        <arg name="color_fps" value="30"/>
+    </include>
+
+    <!-- <include file="$(find realsense2_camera)/launch/rs_camera.launch">
+        <arg name="serial_no" value="317222072257"/>
+        <arg name="camera" value="wrist_camera"/>
+    </include> -->
+
+
+
+<!-- 
+    <node pkg="topic_tools" type="throttle" name="throttle_wrist_camera">
+        <param name="input_topic" value="/wrist_camera/color/image_raw"/>
+        <param name="throttle_rate" value="10"/>
+        <param name="output_topic" value="/wrist_camera/color/image_raw/throttled"/>
+    </node>
+
+    <node pkg="topic_tools" type="throttle" name="throttle_fixed_camera">
+        <param name="input_topic" value="/fixed_camera/color/image_raw"/>
+        <param name="throttle_rate" value="10"/>
+        <param name="output_topic" value="/fixed_camera/color/image_raw/throttled"/>
+    </node> -->
+
+
+</launch>
